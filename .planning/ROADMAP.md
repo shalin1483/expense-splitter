@@ -49,8 +49,8 @@ Plans:
 **Plans**: 2 plans
 
 Plans:
-- [ ] 02-01-PLAN.md — Bill domain types, Zod schemas, and bill store with persist middleware
-- [ ] 02-02-PLAN.md — History store and integration tests for persistence and recalculation
+- [x] 02-01-PLAN.md — Bill domain types, Zod schemas, and bill store with persist middleware
+- [x] 02-02-PLAN.md — History store and integration tests for persistence and recalculation
 
 ### Phase 3: People & Items Management
 **Goal**: Users can add people and items to start building a bill
@@ -62,11 +62,11 @@ Plans:
   3. User can add items with name and dollar amount
   4. Mobile keyboard appears with decimal input for prices
   5. Linear wizard flow prevents proceeding without minimum 2 people
-**Plans**: TBD
+**Plans**: 2 plans
 
 Plans:
-- [ ] 03-01: TBD
-- [ ] 03-02: TBD
+- [ ] 03-01-PLAN.md -- Scaffold Vite+React app and PeopleStep component
+- [ ] 03-02-PLAN.md -- ItemsStep component and BillWizard with navigation
 
 ### Phase 4: Tax, Tip & Assignment
 **Goal**: Users can assign items to people and apply tax/tip calculations
@@ -110,7 +110,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Foundation & Calculation Engine | 3/3 | Complete | 2026-02-09 |
-| 2. State Management & Persistence | 0/2 | Planned | - |
-| 3. People & Items Management | 0/TBD | Not started | - |
+| 2. State Management & Persistence | 2/2 | Complete | 2026-02-09 |
+| 3. People & Items Management | 0/2 | Planned | - |
 | 4. Tax, Tip & Assignment | 0/TBD | Not started | - |
 | 5. Results & History | 0/TBD | Not started | - |
