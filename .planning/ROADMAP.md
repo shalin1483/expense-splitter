@@ -30,11 +30,12 @@ Decimal phases appear between their surrounding integers in numeric order.
   3. Currency conversion between cents and dollars works bidirectionally
   4. Tax and tip calculations produce exact results matching hand calculations
   5. All calculation functions are pure (no state dependencies, fully testable)
-**Plans**: TBD
+**Plans**: 3 plans
 
 Plans:
-- [ ] 01-01: TBD
-- [ ] 01-02: TBD
+- [x] 01-01-PLAN.md — Scaffold TypeScript project and create Cents type with money conversions
+- [x] 01-02-PLAN.md — Split and allocation algorithms with TDD
+- [x] 01-03-PLAN.md — Tax and tip calculation functions with TDD
 
 ### Phase 2: State Management & Persistence
 **Goal**: Build reactive state layer that auto-persists to localStorage
@@ -45,11 +46,11 @@ Plans:
   2. State changes trigger automatic recalculation of totals
   3. Multiple bills can be stored and retrieved from history
   4. State validation prevents invalid configurations (e.g., negative amounts)
-**Plans**: TBD
+**Plans**: 2 plans
 
 Plans:
-- [ ] 02-01: TBD
-- [ ] 02-02: TBD
+- [ ] 02-01-PLAN.md — Bill domain types, Zod schemas, and bill store with persist middleware
+- [ ] 02-02-PLAN.md — History store and integration tests for persistence and recalculation
 
 ### Phase 3: People & Items Management
 **Goal**: Users can add people and items to start building a bill
@@ -108,8 +109,8 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Foundation & Calculation Engine | 0/TBD | Not started | - |
-| 2. State Management & Persistence | 0/TBD | Not started | - |
+| 1. Foundation & Calculation Engine | 3/3 | Complete | 2026-02-09 |
+| 2. State Management & Persistence | 0/2 | Planned | - |
 | 3. People & Items Management | 0/TBD | Not started | - |
 | 4. Tax, Tip & Assignment | 0/TBD | Not started | - |
 | 5. Results & History | 0/TBD | Not started | - |
