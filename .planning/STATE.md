@@ -10,29 +10,29 @@ See: .planning/PROJECT.md (updated 2026-02-09)
 ## Current Position
 
 Phase: 2 of 5 (State Management & Persistence)
-Plan: 1 of 2 in current phase
-Status: In Progress
-Last activity: 2026-02-09 — Completed 02-01-PLAN.md - State Management Foundation
+Plan: 2 of 2 in current phase
+Status: Phase Complete
+Last activity: 2026-02-09 — Completed 02-02-PLAN.md - History Store and Integration Tests
 
-Progress: [█████░░░░░] 50%
+Progress: [██████████] 100%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 4
-- Average duration: 179.5 seconds (3.0 minutes)
-- Total execution time: 0.20 hours
+- Total plans completed: 5
+- Average duration: 206.6 seconds (3.4 minutes)
+- Total execution time: 0.29 hours
 
 **By Phase:**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
 | 01-foundation-and-calculation-engine | 3 | 412s | 137.3s |
-| 02-state-management-and-persistence | 1 | 306s | 306.0s |
+| 02-state-management-and-persistence | 2 | 613s | 306.5s |
 
 **Recent Trend:**
-- Last 5 plans: 01-01 (126s), 01-02 (127s), 01-03 (159s), 02-01 (306s)
-- Trend: Phase 2 plans more complex (5+ min vs 2-3 min)
+- Last 5 plans: 01-02 (127s), 01-03 (159s), 02-01 (306s), 02-02 (307s)
+- Trend: Phase 2 plans consistently ~5 min (more complex than Phase 1's ~2 min)
 
 *Updated after each plan completion*
 
@@ -60,6 +60,9 @@ Recent decisions affecting current work:
 - Actions grouped under 'actions' key - provides stable reference, prevents re-renders on action selection (02-01)
 - Assignments as Record<itemId, Assignment> - enables O(1) lookup vs array scanning (02-01)
 - Zod validation in persist migrate - protects against localStorage corruption with automatic fallback (02-01)
+- History stored under separate localStorage key - isolates saved bills from active bill state (02-02)
+- 50-bill history limit - balances usefulness with localStorage quota constraints (02-02)
+- Integration tests call Phase 1 functions directly - proves wiring correctness between state and calculations (02-02)
 
 ### Pending Todos
 
@@ -71,6 +74,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-02-09 — Plan 02-01 execution
-Stopped at: Completed 02-01-PLAN.md - State Management Foundation
+Last session: 2026-02-09 — Plan 02-02 execution
+Stopped at: Completed 02-02-PLAN.md - History Store and Integration Tests
 Resume file: None
