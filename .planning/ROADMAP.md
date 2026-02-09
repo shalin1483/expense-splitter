@@ -79,12 +79,11 @@ Plans:
   4. User can enter tax as percentage rate or exact dollar amount
   5. User can select tip from presets (15%, 18%, 20%) or enter custom percentage
   6. Tax and tip distribute proportionally across each person's item subtotal
-**Plans**: TBD
+**Plans**: 2 plans
 
 Plans:
-- [ ] 04-01: TBD
-- [ ] 04-02: TBD
-- [ ] 04-03: TBD
+- [ ] 04-01-PLAN.md — AssignmentStep with tap-to-toggle person badges and custom split editor
+- [ ] 04-02-PLAN.md — TaxTipStep component and BillWizard extension to 4 steps
 
 ### Phase 5: Results & History
 **Goal**: Users see final totals and can save completed splits
@@ -112,5 +111,5 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
 | 1. Foundation & Calculation Engine | 3/3 | Complete | 2026-02-09 |
 | 2. State Management & Persistence | 2/2 | Complete | 2026-02-09 |
 | 3. People & Items Management | 2/2 | Complete | 2026-02-09 |
-| 4. Tax, Tip & Assignment | 0/TBD | Not started | - |
+| 4. Tax, Tip & Assignment | 0/2 | Planned | - |
 | 5. Results & History | 0/TBD | Not started | - |
