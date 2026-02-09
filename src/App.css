@@ -95,3 +95,44 @@ li {
 .status {
   font-size: 0.875rem;
 }
+
+.wizard-progress {
+  text-align: center;
+  padding: 8px 0;
+  margin-bottom: 1rem;
+  font-size: 0.875rem;
+  color: #666;
+  border-bottom: 1px solid #eee;
+}
+
+.wizard-nav {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid #eee;
+}
+
+.wizard-nav button {
+  flex: none;
+  min-width: 100px;
+}
+
+.item-row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.item-price {
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.items-total {
+  text-align: right;
+  font-weight: bold;
+  margin-top: 0.5rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid #ccc;
+}
