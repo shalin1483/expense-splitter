@@ -65,8 +65,8 @@ Plans:
 **Plans**: 2 plans
 
 Plans:
-- [ ] 03-01-PLAN.md -- Scaffold Vite+React app and PeopleStep component
-- [ ] 03-02-PLAN.md -- ItemsStep component and BillWizard with navigation
+- [x] 03-01-PLAN.md -- Scaffold Vite+React app and PeopleStep component
+- [x] 03-02-PLAN.md -- ItemsStep component and BillWizard with navigation
 
 ### Phase 4: Tax, Tip & Assignment
 **Goal**: Users can assign items to people and apply tax/tip calculations
@@ -111,6 +111,6 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
 |-------|----------------|--------|-----------|
 | 1. Foundation & Calculation Engine | 3/3 | Complete | 2026-02-09 |
 | 2. State Management & Persistence | 2/2 | Complete | 2026-02-09 |
-| 3. People & Items Management | 0/2 | Planned | - |
+| 3. People & Items Management | 2/2 | Complete | 2026-02-09 |
 | 4. Tax, Tip & Assignment | 0/TBD | Not started | - |
 | 5. Results & History | 0/TBD | Not started | - |
