@@ -5,23 +5,23 @@
 See: .planning/PROJECT.md (updated 2026-02-09)
 
 **Core value:** Accurately split a restaurant bill so every person pays exactly their fair share, including shared items, tip, and tax — no more overpaying or awkward rounding.
-**Current focus:** Phase 2 - State Management & Persistence
+**Current focus:** Phase 3 - People and Items Management
 
 ## Current Position
 
-Phase: 2 of 5 (State Management & Persistence)
-Plan: 2 of 2 in current phase
-Status: Phase Complete
-Last activity: 2026-02-09 — Completed 02-02-PLAN.md - History Store and Integration Tests
+Phase: 3 of 5 (People and Items Management)
+Plan: 1 of 2 in current phase
+Status: In Progress
+Last activity: 2026-02-09 — Completed 03-01-PLAN.md - Vite + React Shell with People Management
 
-Progress: [██████████] 100%
+Progress: [███████████░░] 50%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 5
-- Average duration: 206.6 seconds (3.4 minutes)
-- Total execution time: 0.29 hours
+- Total plans completed: 6
+- Average duration: 190.8 seconds (3.2 minutes)
+- Total execution time: 0.32 hours
 
 **By Phase:**
 
@@ -29,10 +29,11 @@ Progress: [██████████] 100%
 |-------|-------|-------|----------|
 | 01-foundation-and-calculation-engine | 3 | 412s | 137.3s |
 | 02-state-management-and-persistence | 2 | 613s | 306.5s |
+| 03-people-and-items-management | 1 | 134s | 134.0s |
 
 **Recent Trend:**
-- Last 5 plans: 01-02 (127s), 01-03 (159s), 02-01 (306s), 02-02 (307s)
-- Trend: Phase 2 plans consistently ~5 min (more complex than Phase 1's ~2 min)
+- Last 5 plans: 01-03 (159s), 02-01 (306s), 02-02 (307s), 03-01 (134s)
+- Trend: Phase 3 first plan faster than Phase 2 (UI scaffolding simpler than state logic)
 
 *Updated after each plan completion*
 
@@ -63,6 +64,10 @@ Recent decisions affecting current work:
 - History stored under separate localStorage key - isolates saved bills from active bill state (02-02)
 - 50-bill history limit - balances usefulness with localStorage quota constraints (02-02)
 - Integration tests call Phase 1 functions directly - proves wiring correctness between state and calculations (02-02)
+- Local useState for form inputs (draft values) vs Zustand - keeps form state ephemeral, matches research guidance (03-01)
+- Separate vite.config.ts and vitest.config.ts - different concerns, cleaner separation (03-01)
+- Mobile-first CSS with 44px touch targets and 16px fonts - prevents iOS zoom on input focus (03-01)
+- canProceedFromPeople exported as pure helper - enables wizard navigation in next plan (03-01)
 
 ### Pending Todos
 
@@ -74,6 +79,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-02-09 — Plan 02-02 execution
-Stopped at: Completed 02-02-PLAN.md - History Store and Integration Tests
+Last session: 2026-02-09 — Plan 03-01 execution
+Stopped at: Completed 03-01-PLAN.md - Vite + React Shell with People Management
 Resume file: None
