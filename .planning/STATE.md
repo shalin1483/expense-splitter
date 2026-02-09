@@ -10,28 +10,28 @@ See: .planning/PROJECT.md (updated 2026-02-09)
 ## Current Position
 
 Phase: 1 of 5 (Foundation & Calculation Engine)
-Plan: 2 of 3 in current phase
-Status: Executing
-Last activity: 2026-02-09 — Completed 01-02-PLAN.md - Split & Allocation Algorithms
+Plan: 3 of 3 in current phase
+Status: Complete
+Last activity: 2026-02-09 — Completed 01-03-PLAN.md - Tax & Tip Calculations
 
-Progress: [████░░░░░░] 67%
+Progress: [██████████] 100%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 2
-- Average duration: 126.5 seconds (2.1 minutes)
-- Total execution time: 0.07 hours
+- Total plans completed: 3
+- Average duration: 137.3 seconds (2.3 minutes)
+- Total execution time: 0.11 hours
 
 **By Phase:**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
-| 01-foundation-and-calculation-engine | 2 | 253s | 126.5s |
+| 01-foundation-and-calculation-engine | 3 | 412s | 137.3s |
 
 **Recent Trend:**
-- Last 5 plans: 01-01 (126s), 01-02 (127s)
-- Trend: Consistent velocity (~2 min/plan)
+- Last 5 plans: 01-01 (126s), 01-02 (127s), 01-03 (159s)
+- Trend: Consistent velocity (~2-3 min/plan)
 
 *Updated after each plan completion*
 
@@ -52,6 +52,9 @@ Recent decisions affecting current work:
 - First-person remainder priority in splitEqually - simple, deterministic distribution (01-02)
 - Largest remainder method for proportional allocation - mathematically fairest (01-02)
 - Strict validation on calculation functions - throw errors on invalid input (01-02)
+- Tax supports both rate and exact amount inputs - covers all receipt formats (01-03)
+- Tip calculated on pre-tax subtotal - matches restaurant convention (01-03)
+- Both distribution functions delegate to allocateProportionally - consistent algorithm (01-03)
 
 ### Pending Todos
 
@@ -63,6 +66,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-02-09 — Plan 01-02 execution
-Stopped at: Completed 01-02-PLAN.md - Split & Allocation Algorithms
+Last session: 2026-02-09 — Plan 01-03 execution
+Stopped at: Completed 01-03-PLAN.md - Tax & Tip Calculations
 Resume file: None
