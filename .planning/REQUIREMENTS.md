@@ -67,30 +67,30 @@
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| PEOPLE-01 | TBD | Pending |
-| PEOPLE-02 | TBD | Pending |
-| ITEM-01 | TBD | Pending |
-| ITEM-02 | TBD | Pending |
-| ITEM-03 | TBD | Pending |
-| ITEM-04 | TBD | Pending |
-| TAX-01 | TBD | Pending |
-| TAX-02 | TBD | Pending |
-| TAX-03 | TBD | Pending |
-| TIP-01 | TBD | Pending |
-| TIP-02 | TBD | Pending |
-| TIP-03 | TBD | Pending |
-| RESULT-01 | TBD | Pending |
-| RESULT-02 | TBD | Pending |
-| RESULT-03 | TBD | Pending |
-| UX-01 | TBD | Pending |
-| UX-02 | TBD | Pending |
-| UX-03 | TBD | Pending |
+| PEOPLE-01 | Phase 3 | Pending |
+| PEOPLE-02 | Phase 3 | Pending |
+| ITEM-01 | Phase 3 | Pending |
+| ITEM-02 | Phase 4 | Pending |
+| ITEM-03 | Phase 4 | Pending |
+| ITEM-04 | Phase 4 | Pending |
+| TAX-01 | Phase 4 | Pending |
+| TAX-02 | Phase 4 | Pending |
+| TAX-03 | Phase 4 | Pending |
+| TIP-01 | Phase 4 | Pending |
+| TIP-02 | Phase 4 | Pending |
+| TIP-03 | Phase 4 | Pending |
+| RESULT-01 | Phase 5 | Pending |
+| RESULT-02 | Phase 5 | Pending |
+| RESULT-03 | Phase 5 | Pending |
+| UX-01 | Phase 3 | Pending |
+| UX-02 | Phase 3 | Pending |
+| UX-03 | Phase 1, Phase 5 | Pending |
 
 **Coverage:**
 - v1 requirements: 18 total
-- Mapped to phases: 0
-- Unmapped: 18 ⚠️
+- Mapped to phases: 18
+- Unmapped: 0 ✓
 
 ---
 *Requirements defined: 2026-02-09*
-*Last updated: 2026-02-09 after initial definition*
+*Last updated: 2026-02-09 after roadmap creation*
