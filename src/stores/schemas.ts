@@ -67,3 +67,15 @@ export const BillDataSchema = z.object({
   taxInput: TaxInputSchema.nullable(),
   tipRate: z.number().min(0).max(1),
 });
+
+/**
+ * Zod validation schema for SavedBill.
+ * Extends BillDataSchema with id, timestamp, label, and totalInCents.
+ * Used to validate persisted history when rehydrating from localStorage.
+ */
+export const SavedBillSchema = BillDataSchema.extend({
+  id: z.string(),
+  timestamp: z.number(),
+  label: z.string().optional(),
+  totalInCents: z.number().int().nonnegative(),
+});

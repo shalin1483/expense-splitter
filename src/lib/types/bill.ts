@@ -61,5 +61,21 @@ export interface BillData {
   tipRate: number;
 }
 
+/**
+ * Represents a completed bill saved to history.
+ *
+ * - id: Unique identifier for the saved bill
+ * - timestamp: When the bill was saved (Date.now())
+ * - label: Optional user-provided label (e.g., "Dinner at Luigi's")
+ * - totalInCents: Cached grand total for display in history list
+ * - All BillData fields: Complete snapshot of the bill state
+ */
+export interface SavedBill extends BillData {
+  id: string;
+  timestamp: number;
+  label?: string;
+  totalInCents: Cents;
+}
+
 // Re-export TaxInput for convenience
 export type { TaxInput };
