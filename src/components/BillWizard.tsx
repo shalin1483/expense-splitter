@@ -1,31 +1,48 @@
 import { useState, useEffect } from 'react';
-import { usePeople, useItems } from '@/stores/billStore';
+import { usePeople, useItems, useAssignments } from '@/stores/billStore';
 import { PeopleStep, canProceedFromPeople } from '@/components/PeopleStep';
 import { ItemsStep, canProceedFromItems } from '@/components/ItemsStep';
+import { AssignmentStep, canProceedFromAssignment } from '@/components/AssignmentStep';
+import { TaxTipStep } from '@/components/TaxTipStep';
 
-type WizardStep = 'people' | 'items';
+type WizardStep = 'people' | 'items' | 'assignment' | 'taxtip';
 
-const STEPS: readonly WizardStep[] = ['people', 'items'] as const;
+const STEPS: readonly WizardStep[] = ['people', 'items', 'assignment', 'taxtip'] as const;
 
 const stepLabels: Record<WizardStep, string> = {
   people: 'People',
   items: 'Items',
+  assignment: 'Assign Items',
+  taxtip: 'Tax & Tip',
 };
 
 export function BillWizard() {
   const [currentStep, setCurrentStep] = useState<WizardStep>('people');
   const people = usePeople();
   const items = useItems();
+  const assignments = useAssignments();
 
   // Compute validation gates
   const canProceed: Record<WizardStep, boolean> = {
     people: canProceedFromPeople(people),
     items: canProceedFromItems(items),
+    assignment: canProceedFromAssignment(items, assignments),
+    taxtip: true, // Tax/tip always has valid defaults: null tax + 18% tip
   };
 
-  // Auto-advance on mount if people step already completed
+  // Auto-advance on mount to furthest incomplete step
   useEffect(() => {
-    if (currentStep === 'people' && people.length >= 2) {
+    // Check if at least one item is assigned
+    const hasAssignments = items.some(item => {
+      const assignment = assignments[item.id];
+      return assignment && assignment.personIds.length > 0;
+    });
+
+    if (people.length >= 2 && items.length >= 1 && hasAssignments) {
+      setCurrentStep('taxtip');
+    } else if (people.length >= 2 && items.length >= 1) {
+      setCurrentStep('assignment');
+    } else if (people.length >= 2) {
       setCurrentStep('items');
     }
   }, []);
@@ -59,6 +76,8 @@ export function BillWizard() {
       <div>
         {currentStep === 'people' && <PeopleStep />}
         {currentStep === 'items' && <ItemsStep />}
+        {currentStep === 'assignment' && <AssignmentStep />}
+        {currentStep === 'taxtip' && <TaxTipStep />}
       </div>
 
       <div className="wizard-nav">

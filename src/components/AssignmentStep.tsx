@@ -3,7 +3,6 @@ import { useItems, usePeople, useAssignments, useBillActions } from '@/stores/bi
 import type { Item, Assignment, Person } from '@/lib/types/bill';
 import { formatCurrency } from '@/lib/types/money';
 import type { Cents } from '@/lib/types/money';
-import './AssignmentStep.css';
 
 export function AssignmentStep() {
   const items = useItems();

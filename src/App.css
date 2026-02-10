@@ -136,3 +136,275 @@ li {
   padding-top: 0.5rem;
   border-top: 1px solid #ccc;
 }
+
+/* Assignment Step */
+.item-assignment {
+  margin-bottom: 1rem;
+  padding: 12px;
+  border: 1px solid #eee;
+  border-radius: 8px;
+}
+
+.item-assignment .item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.item-assignment .item-header h3 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.item-name {
+  font-weight: 500;
+}
+
+.person-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.person-badge {
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.875rem;
+  min-height: 44px;
+  border: 2px solid #2563eb;
+  background: white;
+  color: #2563eb;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.person-badge:hover {
+  background: #eff6ff;
+}
+
+.person-badge.assigned {
+  background: #2563eb;
+  color: white;
+}
+
+.person-badge.assigned:hover {
+  background: #1d4ed8;
+}
+
+.assignment-summary {
+  font-size: 0.875rem;
+  color: #666;
+  margin-top: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.split-info {
+  font-size: 0.875rem;
+  color: #666;
+}
+
+.split-info.custom {
+  color: #2563eb;
+  font-weight: 500;
+}
+
+.custom-split-btn,
+.revert-btn {
+  font-size: 0.875rem;
+  padding: 6px 12px;
+  min-height: 32px;
+  background: #f3f4f6;
+  color: #1a1a1a;
+}
+
+.custom-split-btn:hover,
+.revert-btn:hover {
+  background: #e5e7eb;
+}
+
+.custom-split-section {
+  margin-top: 8px;
+}
+
+.custom-split-editor {
+  margin-top: 12px;
+  padding: 12px;
+  background: #f9fafb;
+  border-radius: 4px;
+}
+
+.editor-title {
+  font-size: 1rem;
+  font-weight: 500;
+  margin: 0 0 12px 0;
+}
+
+.split-input-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.person-label {
+  flex: 1;
+  font-size: 0.875rem;
+}
+
+.percentage-input-group {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.percentage-input {
+  width: 70px;
+  padding: 6px 8px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  min-height: 36px;
+}
+
+.percentage-symbol {
+  font-size: 0.875rem;
+  color: #666;
+}
+
+.split-total {
+  margin-top: 12px;
+  margin-bottom: 12px;
+  font-weight: 500;
+  text-align: center;
+  padding: 8px;
+  border-radius: 4px;
+}
+
+.split-total.valid {
+  color: #16a34a;
+  background: #f0fdf4;
+}
+
+.split-total.invalid {
+  color: #dc2626;
+  background: #fef2f2;
+}
+
+.editor-actions {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+.cancel-btn,
+.save-btn {
+  flex: none;
+  min-width: 80px;
+}
+
+.cancel-btn {
+  background: #f3f4f6;
+  color: #1a1a1a;
+}
+
+.cancel-btn:hover {
+  background: #e5e7eb;
+}
+
+.save-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Tax & Tip Step */
+.tax-tip-step section {
+  margin-bottom: 1.5rem;
+}
+
+.tax-tip-step h3 {
+  margin: 0 0 0.75rem 0;
+}
+
+.tax-mode {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.tax-mode label {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.9375rem;
+}
+
+.tip-presets {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.tip-preset {
+  flex: 1;
+  padding: 12px;
+  font-size: 1rem;
+  border: 2px solid #2563eb;
+  border-radius: 8px;
+  background: white;
+  color: #2563eb;
+  min-height: 44px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.tip-preset:hover {
+  background: #eff6ff;
+}
+
+.tip-preset.active {
+  background: #2563eb;
+  color: white;
+}
+
+.tip-preset.active:hover {
+  background: #1d4ed8;
+}
+
+.tax-preview, .tip-preview {
+  font-size: 0.875rem;
+  color: #666;
+  margin-top: 8px;
+}
+
+.no-tax-btn {
+  background: transparent;
+  color: #666;
+  border: 1px solid #ccc;
+  font-size: 0.875rem;
+  margin-left: 8px;
+}
+
+.no-tax-btn:hover {
+  background: #f3f4f6;
+}
+
+.tax-input-row, .tip-input-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.tax-input-row input, .tip-input-row input {
+  width: 100px;
+}
+
+.input-suffix {
+  font-size: 0.875rem;
+  color: #666;
+}
