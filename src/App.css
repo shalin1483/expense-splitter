@@ -408,3 +408,128 @@ li {
   font-size: 0.875rem;
   color: #666;
 }
+
+/* Results Step */
+.results-step {
+  /* Container */
+}
+
+.bill-overview {
+  margin-bottom: 1.5rem;
+  padding: 12px;
+  background: #f9fafb;
+  border-radius: 8px;
+}
+
+.overview-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 4px 0;
+  font-size: 0.9375rem;
+}
+
+.overview-row.grand-total {
+  font-weight: bold;
+  font-size: 1.125rem;
+  padding-top: 8px;
+  margin-top: 8px;
+  border-top: 1px solid #ddd;
+}
+
+.person-total {
+  margin-bottom: 8px;
+}
+
+.person-total__summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 44px;
+  padding: 12px 16px;
+  cursor: pointer;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  font-size: 1rem;
+  list-style: none;  /* Remove default triangle on Safari */
+}
+
+.person-total__summary::-webkit-details-marker {
+  display: none;  /* Remove default triangle on Chrome/Safari */
+}
+
+.person-total__summary::before {
+  content: '\25B6';  /* Right-pointing triangle */
+  font-size: 0.75rem;
+  margin-right: 8px;
+  transition: transform 0.2s;
+}
+
+details[open] > .person-total__summary::before {
+  transform: rotate(90deg);
+}
+
+.person-total__summary:hover {
+  background: #f9fafb;
+}
+
+.person-total__name {
+  font-weight: 500;
+}
+
+.person-total__amount {
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.person-total__breakdown {
+  padding: 12px 16px;
+  margin-top: -1px;
+  border: 1px solid #e5e7eb;
+  border-top: none;
+  border-radius: 0 0 8px 8px;
+  background: #fafafa;
+}
+
+.breakdown-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 4px 0;
+  font-size: 0.875rem;
+  border-bottom: none !important;  /* Override global li border */
+}
+
+.breakdown-item .split-indicator {
+  color: #666;
+  font-size: 0.75rem;
+}
+
+.share-line {
+  display: flex;
+  justify-content: space-between;
+  padding: 4px 0;
+  font-size: 0.875rem;
+  color: #666;
+}
+
+.total-line {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0 0 0;
+  margin-top: 8px;
+  border-top: 1px solid #ddd;
+  font-weight: 600;
+}
+
+.results-empty {
+  text-align: center;
+  color: #666;
+  padding: 2rem 1rem;
+}
+
+/* Results step -- person total spacing */
+.person-total + .person-total {
+  margin-top: 8px;
+}

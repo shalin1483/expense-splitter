@@ -4,16 +4,18 @@ import { PeopleStep, canProceedFromPeople } from '@/components/PeopleStep';
 import { ItemsStep, canProceedFromItems } from '@/components/ItemsStep';
 import { AssignmentStep, canProceedFromAssignment } from '@/components/AssignmentStep';
 import { TaxTipStep } from '@/components/TaxTipStep';
+import { ResultsStep } from '@/components/ResultsStep';
 
-type WizardStep = 'people' | 'items' | 'assignment' | 'taxtip';
+type WizardStep = 'people' | 'items' | 'assignment' | 'taxtip' | 'results';
 
-const STEPS: readonly WizardStep[] = ['people', 'items', 'assignment', 'taxtip'] as const;
+const STEPS: readonly WizardStep[] = ['people', 'items', 'assignment', 'taxtip', 'results'] as const;
 
 const stepLabels: Record<WizardStep, string> = {
   people: 'People',
   items: 'Items',
   assignment: 'Assign Items',
   taxtip: 'Tax & Tip',
+  results: 'Results',
 };
 
 export function BillWizard() {
@@ -28,6 +30,7 @@ export function BillWizard() {
     items: canProceedFromItems(items),
     assignment: canProceedFromAssignment(items, assignments),
     taxtip: true, // Tax/tip always has valid defaults: null tax + 18% tip
+    results: true, // Results is always valid (final display step)
   };
 
   // Auto-advance on mount to furthest incomplete step
@@ -38,6 +41,8 @@ export function BillWizard() {
       return assignment && assignment.personIds.length > 0;
     });
 
+    // Auto-advance to furthest valid step
+    // Note: we don't auto-advance to results, user must click "See Results"
     if (people.length >= 2 && items.length >= 1 && hasAssignments) {
       setCurrentStep('taxtip');
     } else if (people.length >= 2 && items.length >= 1) {
@@ -78,15 +83,18 @@ export function BillWizard() {
         {currentStep === 'items' && <ItemsStep />}
         {currentStep === 'assignment' && <AssignmentStep />}
         {currentStep === 'taxtip' && <TaxTipStep />}
+        {currentStep === 'results' && <ResultsStep />}
       </div>
 
       <div className="wizard-nav">
         <button onClick={handleBack} disabled={isFirstStep}>
           Back
         </button>
-        <button onClick={handleNext} disabled={!canProceed[currentStep] || isLastStep}>
-          Next
-        </button>
+        {!isLastStep && (
+          <button onClick={handleNext} disabled={!canProceed[currentStep]}>
+            {currentStep === 'taxtip' ? 'See Results' : 'Next'}
+          </button>
+        )}
       </div>
     </div>
   );

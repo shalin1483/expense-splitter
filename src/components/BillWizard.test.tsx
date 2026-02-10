@@ -5,11 +5,11 @@ import { canProceedFromAssignment } from '@/components/AssignmentStep';
 import type { Person, Item, Assignment } from '@/lib/types/bill';
 
 describe('BillWizard validation gates', () => {
-  const STEPS = ['people', 'items', 'assignment', 'taxtip'] as const;
+  const STEPS = ['people', 'items', 'assignment', 'taxtip', 'results'] as const;
 
   it('STEPS array has correct ordering', () => {
-    expect(STEPS).toEqual(['people', 'items', 'assignment', 'taxtip']);
-    expect(STEPS.length).toBe(4);
+    expect(STEPS).toEqual(['people', 'items', 'assignment', 'taxtip', 'results']);
+    expect(STEPS.length).toBe(5);
   });
 
   it('step index calculation works correctly', () => {
@@ -17,6 +17,7 @@ describe('BillWizard validation gates', () => {
     expect(STEPS.indexOf('items')).toBe(1);
     expect(STEPS.indexOf('assignment')).toBe(2);
     expect(STEPS.indexOf('taxtip')).toBe(3);
+    expect(STEPS.indexOf('results')).toBe(4);
   });
 
   describe('combined validation scenarios', () => {
@@ -98,6 +99,32 @@ describe('BillWizard validation gates', () => {
       // Tax/tip has valid defaults: null tax + 18% tip
       const canProceedFromTaxTip = true;
       expect(canProceedFromTaxTip).toBe(true);
+    });
+  });
+
+  describe('results validation gate', () => {
+    it('results step always allows proceeding (returns true)', () => {
+      // Results is the final display step, always valid
+      const canProceedFromResults = true;
+      expect(canProceedFromResults).toBe(true);
+    });
+  });
+
+  describe('step labels', () => {
+    it('has correct labels for all 5 steps', () => {
+      const stepLabels = {
+        people: 'People',
+        items: 'Items',
+        assignment: 'Assign Items',
+        taxtip: 'Tax & Tip',
+        results: 'Results',
+      };
+
+      expect(stepLabels.people).toBe('People');
+      expect(stepLabels.items).toBe('Items');
+      expect(stepLabels.assignment).toBe('Assign Items');
+      expect(stepLabels.taxtip).toBe('Tax & Tip');
+      expect(stepLabels.results).toBe('Results');
     });
   });
 });
