@@ -82,8 +82,8 @@ Plans:
 **Plans**: 2 plans
 
 Plans:
-- [ ] 04-01-PLAN.md — AssignmentStep with tap-to-toggle person badges and custom split editor
-- [ ] 04-02-PLAN.md — TaxTipStep component and BillWizard extension to 4 steps
+- [x] 04-01-PLAN.md — AssignmentStep with tap-to-toggle person badges and custom split editor
+- [x] 04-02-PLAN.md — TaxTipStep component and BillWizard extension to 4 steps
 
 ### Phase 5: Results & History
 **Goal**: Users see final totals and can save completed splits
@@ -95,11 +95,11 @@ Plans:
   3. User can save completed split to history
   4. User can view list of past splits and recall details
   5. All calculations update instantly as user changes inputs (no calculate button)
-**Plans**: TBD
+**Plans**: 2 plans
 
 Plans:
-- [ ] 05-01: TBD
-- [ ] 05-02: TBD
+- [ ] 05-01-PLAN.md — ResultsStep with derived calculations, expandable breakdowns, and 5-step wizard
+- [ ] 05-02-PLAN.md — Save to History, HistoryList component, and App shell with history toggle
 
 ## Progress
 
@@ -112,4 +112,4 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
 | 2. State Management & Persistence | 2/2 | Complete | 2026-02-09 |
 | 3. People & Items Management | 2/2 | Complete | 2026-02-09 |
 | 4. Tax, Tip & Assignment | 2/2 | Complete | 2026-02-10 |
-| 5. Results & History | 0/TBD | Not started | - |
+| 5. Results & History | 0/2 | Not started | - |
