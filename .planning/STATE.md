@@ -5,23 +5,23 @@
 See: .planning/PROJECT.md (updated 2026-02-09)
 
 **Core value:** Accurately split a restaurant bill so every person pays exactly their fair share, including shared items, tip, and tax — no more overpaying or awkward rounding.
-**Current focus:** Phase 3 - People and Items Management
+**Current focus:** Phase 4 - Tax, Tip, and Assignment
 
 ## Current Position
 
-Phase: 3 of 5 (People and Items Management)
-Plan: 2 of 2 in current phase
+Phase: 4 of 5 (Tax, Tip, and Assignment)
+Plan: 1 of 2 in current phase
 Status: Complete
-Last activity: 2026-02-09 — Completed 03-02-PLAN.md - Items Management and Wizard Navigation
+Last activity: 2026-02-10 — Completed 04-01-PLAN.md - Assignment Step Implementation
 
-Progress: [█████████████] 100%
+Progress: [████████████] 50%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 7
-- Average duration: 164.6 seconds (2.7 minutes)
-- Total execution time: 0.32 hours
+- Total plans completed: 8
+- Average duration: 164.1 seconds (2.7 minutes)
+- Total execution time: 0.36 hours
 
 **By Phase:**
 
@@ -30,10 +30,11 @@ Progress: [█████████████] 100%
 | 01-foundation-and-calculation-engine | 3 | 412s | 137.3s |
 | 02-state-management-and-persistence | 2 | 613s | 306.5s |
 | 03-people-and-items-management | 2 | 147s | 73.5s |
+| 04-tax-tip-and-assignment | 1 | 163s | 163.0s |
 
 **Recent Trend:**
-- Last 5 plans: 02-01 (306s), 02-02 (307s), 03-01 (134s), 03-02 (13s)
-- Trend: Phase 3 plans significantly faster (UI work with established patterns)
+- Last 5 plans: 02-02 (307s), 03-01 (134s), 03-02 (13s), 04-01 (163s)
+- Trend: Consistent execution times for UI work
 
 *Updated after each plan completion*
 
@@ -72,6 +73,11 @@ Recent decisions affecting current work:
 - Math.round for dollar-to-cents conversion - prevents floating-point errors (e.g., 12.99 * 100 = 1298.9999) (03-02)
 - Auto-advance past completed steps on refresh - improves UX when returning to app (03-02)
 - Validation gates disable Next button - prevents proceeding with invalid state (03-02)
+- Equal split remainder to first person - simple, deterministic allocation matching splitEqually pattern (04-01)
+- Rounding correction to largest percentage person - ensures cents sum to item price, matches largest remainder method (04-01)
+- Dedicated CSS file for AssignmentStep - avoids file ownership conflict with Plan 02 modifications to App.css (04-01)
+- Inline custom split editor vs modal - simpler implementation, more mobile-friendly (04-01)
+- Strict 100% validation for custom splits - prevents data integrity issues, provides immediate feedback (04-01)
 
 ### Pending Todos
 
@@ -83,6 +89,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-02-09 — Plan 03-02 execution
-Stopped at: Completed 03-02-PLAN.md - Items Management and Wizard Navigation (Phase 3 complete)
+Last session: 2026-02-10 — Plan 04-01 execution
+Stopped at: Completed 04-01-PLAN.md - Assignment Step Implementation
 Resume file: None
