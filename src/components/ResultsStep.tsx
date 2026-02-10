@@ -1,4 +1,6 @@
-import { usePeople, useItems, useAssignments, useTaxInput, useTipRate } from '@/stores/billStore';
+import { useState } from 'react';
+import { usePeople, useItems, useAssignments, useTaxInput, useTipRate, useBillActions } from '@/stores/billStore';
+import { useHistoryActions } from '@/stores/historyStore';
 import { computePersonTotals } from '@/lib/calculations/personTotals';
 import { formatCurrency } from '@/lib/types/money';
 
@@ -9,12 +11,39 @@ export function ResultsStep() {
   const assignments = useAssignments();
   const taxInput = useTaxInput();
   const tipRate = useTipRate();
+  const billActions = useBillActions();
+  const historyActions = useHistoryActions();
+
+  // State for save button feedback
+  const [isSaved, setIsSaved] = useState(false);
 
   // Derive totals (no useState, no useEffect -- direct computation per research guidance)
   const summary = computePersonTotals(people, items, assignments, taxInput, tipRate);
 
   // Check if any items are assigned
   const hasAssignments = summary.personBreakdowns.some(p => p.items.length > 0);
+
+  // Handle save to history
+  const handleSaveToHistory = () => {
+    const billData = {
+      people,
+      items,
+      assignments,
+      taxInput,
+      tipRate,
+      totalInCents: summary.grandTotal,
+    };
+    historyActions.saveBill(billData);
+
+    // Show feedback
+    setIsSaved(true);
+    setTimeout(() => setIsSaved(false), 2000);
+  };
+
+  // Handle new split
+  const handleNewSplit = () => {
+    billActions.reset();
+  };
 
   if (!hasAssignments) {
     return (
@@ -94,6 +123,20 @@ export function ResultsStep() {
           </div>
         </details>
       ))}
+
+      {/* Save and New Split actions */}
+      <div className="results-actions">
+        <button
+          className={`save-history-btn ${isSaved ? 'saved' : ''}`}
+          onClick={handleSaveToHistory}
+          disabled={isSaved}
+        >
+          {isSaved ? 'Saved!' : 'Save to History'}
+        </button>
+        <button className="new-split-btn" onClick={handleNewSplit}>
+          New Split
+        </button>
+      </div>
     </div>
   );
 }

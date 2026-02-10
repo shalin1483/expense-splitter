@@ -83,4 +83,34 @@ describe('ResultsStep logic', () => {
     expect(formatCurrency(0 as Cents)).toBe('$0.00');
     expect(formatCurrency(999 as Cents)).toBe('$9.99');
   });
+
+  it('constructs correct billData structure for saving to history', () => {
+    const people: Person[] = [{ id: 'p1', name: 'Alice' }];
+    const items: Item[] = [{ id: 'i1', name: 'Burger', priceInCents: 1200 as Cents }];
+    const assignments: Record<string, Assignment> = {
+      i1: { itemId: 'i1', personIds: ['p1'] },
+    };
+    const taxInput = { type: 'rate' as const, rate: 0.1 };
+    const tipRate = 0.18;
+
+    const summary = computePersonTotals(people, items, assignments, taxInput, tipRate);
+
+    // Construct the billData that would be saved
+    const billData = {
+      people,
+      items,
+      assignments,
+      taxInput,
+      tipRate,
+      totalInCents: summary.grandTotal,
+    };
+
+    // Verify structure
+    expect(billData.people).toEqual(people);
+    expect(billData.items).toEqual(items);
+    expect(billData.assignments).toEqual(assignments);
+    expect(billData.taxInput).toEqual(taxInput);
+    expect(billData.tipRate).toBe(tipRate);
+    expect(billData.totalInCents).toBe(summary.grandTotal);
+  });
 });

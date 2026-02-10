@@ -13,10 +13,36 @@ body {
   color: #1a1a1a;
 }
 
+/* App header with history toggle */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+header h1 {
+  margin-bottom: 0;
+  font-size: 1.5rem;
+}
+
 h1 {
   font-size: 1.5rem;
   margin-bottom: 1rem;
   text-align: center;
+}
+
+.history-toggle {
+  background: transparent;
+  color: #2563eb;
+  font-size: 0.875rem;
+  padding: 8px 12px;
+  border: 1px solid #2563eb;
+  min-height: 36px;
+}
+
+.history-toggle:hover {
+  background: #eff6ff;
 }
 
 form {
@@ -532,4 +558,124 @@ details[open] > .person-total__summary::before {
 /* Results step -- person total spacing */
 .person-total + .person-total {
   margin-top: 8px;
+}
+
+/* Save and New Split buttons */
+.results-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 1.5rem;
+}
+
+.save-history-btn {
+  flex: 1;
+  background: #16a34a;
+}
+
+.save-history-btn:hover {
+  background: #15803d;
+}
+
+.save-history-btn.saved {
+  background: #16a34a;
+  opacity: 0.7;
+}
+
+.new-split-btn {
+  flex: 1;
+  background: #f3f4f6;
+  color: #1a1a1a;
+}
+
+.new-split-btn:hover {
+  background: #e5e7eb;
+}
+
+/* History List */
+.history-list {
+  /* container */
+}
+
+.history-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.history-empty {
+  text-align: center;
+  color: #666;
+  padding: 2rem 1rem;
+}
+
+.history-item {
+  margin-bottom: 8px;
+}
+
+.history-item__summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 44px;
+  padding: 12px 16px;
+  cursor: pointer;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  list-style: none;
+}
+
+.history-item__summary::-webkit-details-marker {
+  display: none;
+}
+
+.history-item__summary:hover {
+  background: #f9fafb;
+}
+
+.history-meta {
+  font-size: 0.875rem;
+  color: #666;
+}
+
+.history-item__details {
+  padding: 12px 16px;
+  border: 1px solid #e5e7eb;
+  border-top: none;
+  border-radius: 0 0 8px 8px;
+  background: #fafafa;
+  font-size: 0.875rem;
+}
+
+.history-delete-btn {
+  background: transparent;
+  color: #dc2626;
+  font-size: 0.75rem;
+  padding: 4px 8px;
+  min-height: 32px;
+  min-width: 32px;
+}
+
+.history-delete-btn:hover {
+  background: #fee2e2;
+}
+
+.clear-history-btn {
+  width: 100%;
+  background: #f3f4f6;
+  color: #dc2626;
+  margin-top: 1rem;
+  font-size: 0.875rem;
+}
+
+.clear-history-btn:hover {
+  background: #fee2e2;
+}
+
+.clear-history-btn.confirming {
+  background: #dc2626;
+  color: white;
 }
