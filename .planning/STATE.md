@@ -5,23 +5,23 @@
 See: .planning/PROJECT.md (updated 2026-02-09)
 
 **Core value:** Accurately split a restaurant bill so every person pays exactly their fair share, including shared items, tip, and tax — no more overpaying or awkward rounding.
-**Current focus:** Phase 4 - Tax, Tip, and Assignment
+**Current focus:** Phase 5 - Results and History
 
 ## Current Position
 
-Phase: 4 of 5 (Tax, Tip, and Assignment)
-Plan: 2 of 2 in current phase
+Phase: 5 of 5 (Results and History)
+Plan: 1 of 2 in current phase
 Status: Complete
-Last activity: 2026-02-10 — Completed 04-02-PLAN.md - Tax & Tip Configuration with 4-Step Wizard
+Last activity: 2026-02-10 — Completed 05-01-PLAN.md - Results Display with Per-Person Breakdowns
 
-Progress: [████████████] 56%
+Progress: [█████████████] 63%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 9
-- Average duration: 150.2 seconds (2.5 minutes)
-- Total execution time: 0.38 hours
+- Total plans completed: 10
+- Average duration: 156.1 seconds (2.6 minutes)
+- Total execution time: 0.43 hours
 
 **By Phase:**
 
@@ -31,10 +31,11 @@ Progress: [████████████] 56%
 | 02-state-management-and-persistence | 2 | 613s | 306.5s |
 | 03-people-and-items-management | 2 | 147s | 73.5s |
 | 04-tax-tip-and-assignment | 2 | 262s | 131.0s |
+| 05-results-and-history | 1 | 213s | 213.0s |
 
 **Recent Trend:**
-- Last 5 plans: 03-01 (134s), 03-02 (13s), 04-01 (163s), 04-02 (99s)
-- Trend: Fast execution for UI work with established patterns
+- Last 5 plans: 03-02 (13s), 04-01 (163s), 04-02 (99s), 05-01 (213s)
+- Trend: Steady execution with comprehensive testing
 
 *Updated after each plan completion*
 
@@ -83,6 +84,9 @@ Recent decisions affecting current work:
 - Tip presets as buttons with aria-pressed - better mobile UX than radio inputs, larger tap targets (04-02)
 - Consolidate Phase 4 CSS into App.css - maintains single source of truth for styles (04-02)
 - Tax/Tip step always valid - reasonable defaults exist (null tax + 18% tip) (04-02)
+- Direct computation in render vs stored calculations - chose render-time derivation to eliminate sync bugs (05-01)
+- Native details/summary vs custom accordion - chose native for better accessibility and simplicity (05-01)
+- Results step always valid - it's the final display step, no validation needed (05-01)
 
 ### Pending Todos
 
@@ -94,6 +98,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-02-10 — Plan 04-02 execution
-Stopped at: Completed 04-02-PLAN.md - Tax & Tip Configuration with 4-Step Wizard
+Last session: 2026-02-10 — Plan 05-01 execution
+Stopped at: Completed 05-01-PLAN.md - Results Display with Per-Person Breakdowns
 Resume file: None
