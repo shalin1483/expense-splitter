@@ -98,8 +98,8 @@ Plans:
 **Plans**: 2 plans
 
 Plans:
-- [ ] 05-01-PLAN.md — ResultsStep with derived calculations, expandable breakdowns, and 5-step wizard
-- [ ] 05-02-PLAN.md — Save to History, HistoryList component, and App shell with history toggle
+- [x] 05-01-PLAN.md — ResultsStep with derived calculations, expandable breakdowns, and 5-step wizard
+- [x] 05-02-PLAN.md — Save to History, HistoryList component, and App shell with history toggle
 
 ## Progress
 
@@ -112,4 +112,4 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
 | 2. State Management & Persistence | 2/2 | Complete | 2026-02-09 |
 | 3. People & Items Management | 2/2 | Complete | 2026-02-09 |
 | 4. Tax, Tip & Assignment | 2/2 | Complete | 2026-02-10 |
-| 5. Results & History | 0/2 | Not started | - |
+| 5. Results & History | 2/2 | Complete | 2026-02-16 |
