@@ -10,11 +10,11 @@ See: .planning/PROJECT.md (updated 2026-02-09)
 ## Current Position
 
 Phase: 6 of 6 (UI Improvements)
-Plan: 1 of 7 in current phase
+Plan: 2 of 7 in current phase
 Status: In Progress
-Last activity: 2026-02-18 — Completed 06-01-PLAN.md - Tailwind v4 + shadcn/ui Infrastructure
+Last activity: 2026-02-18 — Completed 06-02-PLAN.md - Dark Mode Toggle and Global Toast
 
-Progress: [█░░░░░░░░░░░░░░] 14%
+Progress: [██░░░░░░░░░░░░░] 28%
 
 ## Performance Metrics
 
@@ -32,11 +32,11 @@ Progress: [█░░░░░░░░░░░░░░] 14%
 | 03-people-and-items-management | 2 | 147s | 73.5s |
 | 04-tax-tip-and-assignment | 2 | 262s | 131.0s |
 | 05-results-and-history | 2 | 220s | 110.0s |
-| 06-ui-improvements | 1 (of 7) | 226s | 226.0s |
+| 06-ui-improvements | 2 (of 7) | 303s | 151.5s |
 
 **Recent Trend:**
-- Last 5 plans: 04-02 (99s), 05-01 (213s), 05-02 (7s), 06-01 (226s)
-- Trend: Phase 6 infrastructure plan completed, 6 component migration plans remaining
+- Last 5 plans: 05-01 (213s), 05-02 (7s), 06-01 (226s), 06-02 (77s)
+- Trend: Phase 6 dark mode hook + App.tsx toggle complete, 5 component migration plans remaining
 
 *Updated after each plan completion*
 
@@ -94,6 +94,11 @@ Recent decisions affecting current work:
 - [Phase 06-ui-improvements]: Tailwind v4 CSS-first config - no tailwind.config.js; all config in App.css via @theme
 - [Phase 06-ui-improvements]: Preserved shadcn CSS variable blocks alongside plan's @theme brand tokens - required for shadcn component styling
 - [Phase 06-ui-improvements]: @custom-variant dark uses :where(.dark, .dark *) - zero-specificity variant avoids CSS conflicts
+- [Phase 06-ui-improvements]: useState(getInitialTheme) function reference for synchronous initialization - prevents flash of wrong theme on load
+- [Phase 06-ui-improvements]: document.documentElement targeted for dark class toggle - required for Tailwind dark variant propagation
+- [Phase 06-ui-improvements]: Toaster mounted in App.tsx root - enables toast.success() calls in any child component
+- [Phase 06-ui-improvements]: direction state set BEFORE setCurrentStep - ensures exit animation reads correct direction (06-03)
+- [Phase 06-ui-improvements]: AnimatePresence mode=wait with directional x+opacity variants - prevents step overlap, no layout thrash (06-03)
 
 ### Pending Todos
 
@@ -105,6 +110,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-02-18 — Plan 06-01 execution
-Stopped at: Completed 06-01-PLAN.md - Tailwind v4 + shadcn/ui Infrastructure
+Last session: 2026-02-18 — Plan 06-03 execution
+Stopped at: Completed 06-03-PLAN.md - Wizard Progress Bar and Slide Animations
 Resume file: None
