@@ -5,23 +5,23 @@
 See: .planning/PROJECT.md (updated 2026-02-09)
 
 **Core value:** Accurately split a restaurant bill so every person pays exactly their fair share, including shared items, tip, and tax — no more overpaying or awkward rounding.
-**Current focus:** Phase 5 - Results and History
+**Current focus:** Phase 6 - UI Improvements
 
 ## Current Position
 
-Phase: 5 of 5 (Results and History)
-Plan: 2 of 2 in current phase
-Status: Complete
-Last activity: 2026-02-12 — Completed 05-02-PLAN.md - History Management with Save and Recall
+Phase: 6 of 6 (UI Improvements)
+Plan: 1 of 7 in current phase
+Status: In Progress
+Last activity: 2026-02-18 — Completed 06-01-PLAN.md - Tailwind v4 + shadcn/ui Infrastructure
 
-Progress: [███████████████] 100%
+Progress: [█░░░░░░░░░░░░░░] 14%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 11
-- Average duration: 143.6 seconds (2.4 minutes)
-- Total execution time: 0.44 hours
+- Total plans completed: 12
+- Average duration: 145.3 seconds (2.4 minutes)
+- Total execution time: 0.48 hours
 
 **By Phase:**
 
@@ -32,10 +32,11 @@ Progress: [███████████████] 100%
 | 03-people-and-items-management | 2 | 147s | 73.5s |
 | 04-tax-tip-and-assignment | 2 | 262s | 131.0s |
 | 05-results-and-history | 2 | 220s | 110.0s |
+| 06-ui-improvements | 1 (of 7) | 226s | 226.0s |
 
 **Recent Trend:**
-- Last 5 plans: 04-01 (163s), 04-02 (99s), 05-01 (213s), 05-02 (7s)
-- Trend: Phase 5 completed efficiently with checkpoint-based execution
+- Last 5 plans: 04-02 (99s), 05-01 (213s), 05-02 (7s), 06-01 (226s)
+- Trend: Phase 6 infrastructure plan completed, 6 component migration plans remaining
 
 *Updated after each plan completion*
 
@@ -90,6 +91,9 @@ Recent decisions affecting current work:
 - Save button with temporary "Saved!" feedback - provides immediate user confirmation without modal (05-02)
 - View toggle in app header - simple navigation pattern, no routing needed (05-02)
 - Two-click Clear All with confirmation - prevents accidental data loss without modal interruption (05-02)
+- [Phase 06-ui-improvements]: Tailwind v4 CSS-first config - no tailwind.config.js; all config in App.css via @theme
+- [Phase 06-ui-improvements]: Preserved shadcn CSS variable blocks alongside plan's @theme brand tokens - required for shadcn component styling
+- [Phase 06-ui-improvements]: @custom-variant dark uses :where(.dark, .dark *) - zero-specificity variant avoids CSS conflicts
 
 ### Pending Todos
 
@@ -101,6 +105,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-02-12 — Plan 05-02 execution (continuation from checkpoint)
-Stopped at: Completed 05-02-PLAN.md - History Management with Save and Recall (PHASE 5 COMPLETE)
+Last session: 2026-02-18 — Plan 06-01 execution
+Stopped at: Completed 06-01-PLAN.md - Tailwind v4 + shadcn/ui Infrastructure
 Resume file: None
