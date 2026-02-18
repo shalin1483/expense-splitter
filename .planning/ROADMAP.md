@@ -12,12 +12,12 @@ This roadmap delivers a mobile-first restaurant bill splitter in 5 phases, follo
 
 Decimal phases appear between their surrounding integers in numeric order.
 
-- [ ] **Phase 1: Foundation & Calculation Engine** - Type system and pure money math
-- [ ] **Phase 2: State Management & Persistence** - Zustand stores with localStorage
-- [ ] **Phase 3: People & Items Management** - First wizard steps (add people, add items)
-- [ ] **Phase 4: Tax, Tip & Assignment** - Middle wizard steps (assign items, calculate splits)
-- [ ] **Phase 5: Results & History** - Final wizard step (display totals, save history)
-- [ ] **Phase 6: UI Improvements** - Tailwind CSS v4 + shadcn/ui polish, dark mode, animations
+- [x] **Phase 1: Foundation & Calculation Engine** - Type system and pure money math
+- [x] **Phase 2: State Management & Persistence** - Zustand stores with localStorage
+- [x] **Phase 3: People & Items Management** - First wizard steps (add people, add items)
+- [x] **Phase 4: Tax, Tip & Assignment** - Middle wizard steps (assign items, calculate splits)
+- [x] **Phase 5: Results & History** - Final wizard step (display totals, save history)
+- [x] **Phase 6: UI Improvements** - Tailwind CSS v4 + shadcn/ui polish, dark mode, animations
 
 ## Phase Details
 
@@ -116,13 +116,13 @@ Plans:
 **Plans**: 7 plans
 
 Plans:
-- [ ] 06-01-PLAN.md — Install Tailwind v4, shadcn/ui, motion, sonner and replace App.css with token foundation
-- [ ] 06-02-PLAN.md — useDarkMode hook, dark mode toggle in App.tsx, and global Toaster
-- [ ] 06-03-PLAN.md — BillWizard: shadcn/ui Progress bar and AnimatePresence step transitions
-- [ ] 06-04-PLAN.md — Migrate PeopleStep and ItemsStep to Tailwind
-- [ ] 06-05-PLAN.md — Migrate AssignmentStep and TaxTipStep to Tailwind
-- [ ] 06-06-PLAN.md — Migrate ResultsStep and HistoryList to Tailwind, replace save feedback with sonner toast
-- [ ] 06-07-PLAN.md — Full test suite and human verification of all 6 success criteria
+- [x] 06-01-PLAN.md — Install Tailwind v4, shadcn/ui, motion, sonner and replace App.css with token foundation
+- [x] 06-02-PLAN.md — useDarkMode hook, dark mode toggle in App.tsx, and global Toaster
+- [x] 06-03-PLAN.md — BillWizard: shadcn/ui Progress bar and AnimatePresence step transitions
+- [x] 06-04-PLAN.md — Migrate PeopleStep and ItemsStep to Tailwind
+- [x] 06-05-PLAN.md — Migrate AssignmentStep and TaxTipStep to Tailwind
+- [x] 06-06-PLAN.md — Migrate ResultsStep and HistoryList to Tailwind, replace save feedback with sonner toast
+- [x] 06-07-PLAN.md — Full test suite and human verification of all 6 success criteria
 
 ## Progress
 
@@ -136,4 +136,4 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6
 | 3. People & Items Management | 2/2 | Complete | 2026-02-09 |
 | 4. Tax, Tip & Assignment | 2/2 | Complete | 2026-02-10 |
 | 5. Results & History | 2/2 | Complete | 2026-02-16 |
-| 6. UI Improvements | 0/7 | Pending | — |
+| 6. UI Improvements | 7/7 | Complete | 2026-02-18 |
