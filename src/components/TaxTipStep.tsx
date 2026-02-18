@@ -122,13 +122,13 @@ export function TaxTipStep() {
   };
 
   return (
-    <div className="tax-tip-step">
+    <div>
       {/* Tax Configuration Section */}
-      <section>
-        <h3>Tax</h3>
+      <section className="mb-6">
+        <h3 className="text-base font-semibold mb-3 text-zinc-800 dark:text-zinc-200">Tax</h3>
 
-        <div className="tax-mode" role="radiogroup" aria-label="Tax input mode">
-          <label>
+        <div className="flex gap-6 mb-3" role="radiogroup" aria-label="Tax input mode">
+          <label className="flex items-center gap-1.5 text-[0.9375rem] text-zinc-700 dark:text-zinc-300 cursor-pointer">
             <input
               type="radio"
               name="tax-mode"
@@ -138,7 +138,7 @@ export function TaxTipStep() {
             />
             Tax Rate (%)
           </label>
-          <label>
+          <label className="flex items-center gap-1.5 text-[0.9375rem] text-zinc-700 dark:text-zinc-300 cursor-pointer">
             <input
               type="radio"
               name="tax-mode"
@@ -151,7 +151,7 @@ export function TaxTipStep() {
         </div>
 
         {taxMode === 'rate' ? (
-          <div className="tax-input-row">
+          <div className="flex items-center gap-2">
             <input
               type="number"
               inputMode="decimal"
@@ -162,15 +162,16 @@ export function TaxTipStep() {
               value={taxRateStr}
               onChange={(e) => handleTaxRateChange(e.target.value)}
               aria-label="Tax rate percentage"
+              className="w-[100px] px-3 py-2 text-base border border-zinc-300 dark:border-zinc-600 rounded-md min-h-[44px] bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-50 focus:outline-none focus:ring-2 focus:ring-brand focus:border-transparent"
             />
-            <span className="input-suffix">%</span>
-            <button onClick={handleNoTax} className="no-tax-btn">
+            <span className="text-sm text-zinc-500 dark:text-zinc-400">%</span>
+            <button onClick={handleNoTax} className="px-3 py-2 ml-2 text-sm border border-zinc-300 dark:border-zinc-600 rounded-md bg-transparent text-zinc-500 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-800 min-h-[44px] transition-colors">
               No Tax
             </button>
           </div>
         ) : (
-          <div className="tax-input-row">
-            <span className="input-suffix">$</span>
+          <div className="flex items-center gap-2">
+            <span className="text-sm text-zinc-500 dark:text-zinc-400">$</span>
             <input
               type="number"
               inputMode="decimal"
@@ -180,37 +181,50 @@ export function TaxTipStep() {
               value={taxExactStr}
               onChange={(e) => handleTaxExactChange(e.target.value)}
               aria-label="Exact tax amount in dollars"
+              className="w-[100px] px-3 py-2 text-base border border-zinc-300 dark:border-zinc-600 rounded-md min-h-[44px] bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-50 focus:outline-none focus:ring-2 focus:ring-brand focus:border-transparent"
             />
-            <button onClick={handleNoTax} className="no-tax-btn">
+            <button onClick={handleNoTax} className="px-3 py-2 ml-2 text-sm border border-zinc-300 dark:border-zinc-600 rounded-md bg-transparent text-zinc-500 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-800 min-h-[44px] transition-colors">
               No Tax
             </button>
           </div>
         )}
 
-        <div className="tax-preview">{getTaxPreview()}</div>
+        <div className="text-sm text-zinc-500 dark:text-zinc-400 mt-2">{getTaxPreview()}</div>
       </section>
 
       {/* Tip Configuration Section */}
-      <section>
-        <h3>Tip</h3>
+      <section className="mb-6">
+        <h3 className="text-base font-semibold mb-3 text-zinc-800 dark:text-zinc-200">Tip</h3>
 
-        <div className="tip-presets">
+        <div className="flex gap-2 mb-3">
           <button
-            className={`tip-preset ${activeTipPreset(0.15) ? 'active' : ''}`}
+            className={`flex-1 py-3 text-base border-2 border-brand rounded-lg min-h-[44px] cursor-pointer text-center transition-colors ${
+              activeTipPreset(0.15)
+                ? 'bg-brand text-white hover:bg-brand-hover'
+                : 'bg-white dark:bg-zinc-900 text-brand hover:bg-brand-light dark:hover:bg-zinc-800'
+            }`}
             onClick={() => handleTipPreset(0.15)}
             aria-pressed={activeTipPreset(0.15)}
           >
             15%
           </button>
           <button
-            className={`tip-preset ${activeTipPreset(0.18) ? 'active' : ''}`}
+            className={`flex-1 py-3 text-base border-2 border-brand rounded-lg min-h-[44px] cursor-pointer text-center transition-colors ${
+              activeTipPreset(0.18)
+                ? 'bg-brand text-white hover:bg-brand-hover'
+                : 'bg-white dark:bg-zinc-900 text-brand hover:bg-brand-light dark:hover:bg-zinc-800'
+            }`}
             onClick={() => handleTipPreset(0.18)}
             aria-pressed={activeTipPreset(0.18)}
           >
             18%
           </button>
           <button
-            className={`tip-preset ${activeTipPreset(0.20) ? 'active' : ''}`}
+            className={`flex-1 py-3 text-base border-2 border-brand rounded-lg min-h-[44px] cursor-pointer text-center transition-colors ${
+              activeTipPreset(0.20)
+                ? 'bg-brand text-white hover:bg-brand-hover'
+                : 'bg-white dark:bg-zinc-900 text-brand hover:bg-brand-light dark:hover:bg-zinc-800'
+            }`}
             onClick={() => handleTipPreset(0.20)}
             aria-pressed={activeTipPreset(0.20)}
           >
@@ -218,8 +232,8 @@ export function TaxTipStep() {
           </button>
         </div>
 
-        <div className="tip-input-row">
-          <label htmlFor="custom-tip">Custom tip:</label>
+        <div className="flex items-center gap-2">
+          <label htmlFor="custom-tip" className="text-sm text-zinc-700 dark:text-zinc-300">Custom tip:</label>
           <input
             id="custom-tip"
             type="number"
@@ -230,8 +244,9 @@ export function TaxTipStep() {
             value={tipPercentageStr}
             onChange={(e) => handleCustomTipChange(e.target.value)}
             aria-label="Custom tip percentage"
+            className="w-[100px] px-3 py-2 text-base border border-zinc-300 dark:border-zinc-600 rounded-md min-h-[44px] bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-50 focus:outline-none focus:ring-2 focus:ring-brand focus:border-transparent"
           />
-          <span className="input-suffix">%</span>
+          <span className="text-sm text-zinc-500 dark:text-zinc-400">%</span>
         </div>
       </section>
     </div>
