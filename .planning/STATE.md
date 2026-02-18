@@ -10,18 +10,18 @@ See: .planning/PROJECT.md (updated 2026-02-09)
 ## Current Position
 
 Phase: 6 of 6 (UI Improvements)
-Plan: 4 of 7 in current phase
+Plan: 5 of 7 in current phase
 Status: In Progress
-Last activity: 2026-02-18 — Completed 06-04-PLAN.md - PeopleStep and ItemsStep Tailwind Migration
+Last activity: 2026-02-18 — Completed 06-05-PLAN.md - AssignmentStep and TaxTipStep Tailwind Migration
 
-Progress: [████░░░░░░░░░░░] 43%
+Progress: [██████░░░░░░░░░] 57%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 14
-- Average duration: 145.3 seconds (2.4 minutes)
-- Total execution time: 0.58 hours
+- Total plans completed: 15
+- Average duration: 145.1 seconds (2.4 minutes)
+- Total execution time: 0.60 hours
 
 **By Phase:**
 
@@ -32,11 +32,11 @@ Progress: [████░░░░░░░░░░░] 43%
 | 03-people-and-items-management | 2 | 147s | 73.5s |
 | 04-tax-tip-and-assignment | 2 | 262s | 131.0s |
 | 05-results-and-history | 2 | 220s | 110.0s |
-| 06-ui-improvements | 4 (of 7) | 659s | 164.8s |
+| 06-ui-improvements | 5 (of 7) | 806s | 161.2s |
 
 **Recent Trend:**
-- Last 5 plans: 06-01 (226s), 06-02 (77s), 06-03 (unknown), 06-04 (356s)
-- Trend: Phase 6 Tailwind setup + dark mode + animations + PeopleStep/ItemsStep migration complete, 3 component migration plans remaining
+- Last 5 plans: 06-01 (226s), 06-02 (77s), 06-03 (unknown), 06-04 (356s), 06-05 (147s)
+- Trend: Phase 6 Tailwind setup + dark mode + animations + PeopleStep/ItemsStep/AssignmentStep/TaxTipStep migration complete, 2 plans remaining
 
 *Updated after each plan completion*
 
@@ -100,6 +100,7 @@ Recent decisions affecting current work:
 - [Phase 06-ui-improvements]: direction state set BEFORE setCurrentStep - ensures exit animation reads correct direction (06-03)
 - [Phase 06-ui-improvements]: AnimatePresence mode=wait with directional x+opacity variants - prevents step overlap, no layout thrash (06-03)
 - [Phase 06-ui-improvements]: Tailwind patterns established in Wave 1 (PeopleStep, ItemsStep) as canonical templates for remaining step components (06-04)
+- [Phase 06-ui-improvements]: Tailwind className ternary for person badge and tip preset interactive states — active uses bg-brand text-white, inactive uses outline border-brand style (06-05)
 
 ### Pending Todos
 
@@ -111,6 +112,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-02-18 — Plan 06-04 execution
-Stopped at: Completed 06-04-PLAN.md - PeopleStep and ItemsStep Tailwind Migration
+Last session: 2026-02-18 — Plan 06-05 execution
+Stopped at: Completed 06-05-PLAN.md - AssignmentStep and TaxTipStep Tailwind Migration
 Resume file: None
