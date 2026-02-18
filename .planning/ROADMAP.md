@@ -17,6 +17,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [ ] **Phase 3: People & Items Management** - First wizard steps (add people, add items)
 - [ ] **Phase 4: Tax, Tip & Assignment** - Middle wizard steps (assign items, calculate splits)
 - [ ] **Phase 5: Results & History** - Final wizard step (display totals, save history)
+- [ ] **Phase 6: UI Improvements** - Tailwind CSS v4 + shadcn/ui polish, dark mode, animations
 
 ## Phase Details
 
@@ -101,10 +102,32 @@ Plans:
 - [x] 05-01-PLAN.md — ResultsStep with derived calculations, expandable breakdowns, and 5-step wizard
 - [x] 05-02-PLAN.md — Save to History, HistoryList component, and App shell with history toggle
 
+### Phase 6: UI Improvements
+**Goal**: Upgrade the app to a polished, production-grade UI with Tailwind CSS v4, shadcn/ui components, dark mode, and micro-animations
+**Depends on**: Phase 5
+**Requirements**: ENH-02 (dark mode), UX-01 (mobile-first)
+**Success Criteria** (what must be TRUE):
+  1. Tailwind CSS v4 installed and App.css migrated to token-based CSS
+  2. shadcn/ui components replace plain HTML elements for buttons, cards, and progress
+  3. Dark mode toggle works and persists across page refresh
+  4. Wizard step transitions animate directionally (forward/back slide)
+  5. Save-to-history shows a toast notification (sonner) instead of inline state text
+  6. All existing functionality works identically after the visual upgrade
+**Plans**: 7 plans
+
+Plans:
+- [ ] 06-01-PLAN.md — Install Tailwind v4, shadcn/ui, motion, sonner and replace App.css with token foundation
+- [ ] 06-02-PLAN.md — useDarkMode hook, dark mode toggle in App.tsx, and global Toaster
+- [ ] 06-03-PLAN.md — BillWizard: shadcn/ui Progress bar and AnimatePresence step transitions
+- [ ] 06-04-PLAN.md — Migrate PeopleStep and ItemsStep to Tailwind
+- [ ] 06-05-PLAN.md — Migrate AssignmentStep and TaxTipStep to Tailwind
+- [ ] 06-06-PLAN.md — Migrate ResultsStep and HistoryList to Tailwind, replace save feedback with sonner toast
+- [ ] 06-07-PLAN.md — Full test suite and human verification of all 6 success criteria
+
 ## Progress
 
 **Execution Order:**
-Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
+Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
@@ -113,3 +136,4 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
 | 3. People & Items Management | 2/2 | Complete | 2026-02-09 |
 | 4. Tax, Tip & Assignment | 2/2 | Complete | 2026-02-10 |
 | 5. Results & History | 2/2 | Complete | 2026-02-16 |
+| 6. UI Improvements | 0/7 | Pending | — |
