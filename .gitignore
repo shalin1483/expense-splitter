@@ -7,6 +7,9 @@ dist/
 # Planning artifacts (local only)
 .planning/
 
+# Claude Code
+.claude/
+
 # Env files
 .env
 .env.local
