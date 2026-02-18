@@ -49,16 +49,16 @@ export function AssignmentStep() {
         const isEditingThisItem = editingCustomSplitItemId === item.id;
 
         return (
-          <div key={item.id} className="item-assignment">
+          <div key={item.id} className="mb-3 p-3 border border-zinc-200 dark:border-zinc-700 rounded-lg bg-white dark:bg-zinc-900">
             {/* Item header */}
-            <div className="item-header">
-              <span className="item-name">{item.name}</span>
-              <span className="item-price">{formatCurrency(item.priceInCents)}</span>
+            <div className="flex justify-between items-center mb-2">
+              <span className="font-medium text-zinc-900 dark:text-zinc-50">{item.name}</span>
+              <span className="text-sm font-mono tabular-nums text-zinc-600 dark:text-zinc-400">{formatCurrency(item.priceInCents)}</span>
             </div>
 
             {/* Person badges */}
             <div
-              className="person-badges"
+              className="flex flex-wrap gap-2 mt-2"
               role="group"
               aria-label={`Assign ${item.name} to people`}
             >
@@ -67,7 +67,11 @@ export function AssignmentStep() {
                 return (
                   <button
                     key={person.id}
-                    className={`person-badge ${isAssigned ? 'assigned' : 'unassigned'}`}
+                    className={`px-4 py-2 rounded-full text-sm min-h-[44px] border-2 border-brand cursor-pointer flex items-center transition-colors active:scale-95 ${
+                      isAssigned
+                        ? 'bg-brand text-white hover:bg-brand-hover'
+                        : 'bg-white dark:bg-zinc-900 text-brand hover:bg-brand-light dark:hover:bg-zinc-800'
+                    }`}
                     aria-pressed={isAssigned}
                     onClick={() => togglePersonOnItem(item.id, person.id)}
                   >
@@ -79,20 +83,20 @@ export function AssignmentStep() {
 
             {/* Assignment summary and custom split controls */}
             {assignedPersonIds.length > 0 && (
-              <div className="assignment-summary">
+              <div className="text-sm text-zinc-500 dark:text-zinc-400 mt-3 flex items-center gap-2 flex-wrap">
                 {!hasCustomSplit && assignedPersonIds.length === 1 && (
-                  <span className="split-info">
+                  <span className="text-sm text-zinc-500 dark:text-zinc-400">
                     Assigned to {people.find(p => p.id === assignedPersonIds[0])?.name}
                   </span>
                 )}
                 {!hasCustomSplit && assignedPersonIds.length >= 2 && (
                   <>
-                    <span className="split-info">
+                    <span className="text-sm text-zinc-500 dark:text-zinc-400">
                       Split equally among {assignedPersonIds.map(id => people.find(p => p.id === id)?.name).join(', ')}
                     </span>
                     {!isEditingThisItem && (
                       <button
-                        className="custom-split-btn"
+                        className="text-sm px-3 py-1.5 min-h-[32px] rounded-md bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 hover:bg-zinc-200 dark:hover:bg-zinc-700 transition-colors"
                         onClick={() => setEditingCustomSplitItemId(item.id)}
                       >
                         Custom Split
@@ -102,9 +106,9 @@ export function AssignmentStep() {
                 )}
                 {hasCustomSplit && (
                   <>
-                    <span className="split-info custom">Custom split applied</span>
+                    <span className="text-sm text-brand font-medium">Custom split applied</span>
                     <button
-                      className="revert-btn"
+                      className="text-sm px-3 py-1.5 min-h-[32px] rounded-md bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 hover:bg-zinc-200 dark:hover:bg-zinc-700 transition-colors"
                       onClick={() => handleRevertToEqual(item.id)}
                     >
                       Revert to equal
@@ -116,16 +120,18 @@ export function AssignmentStep() {
 
             {/* Custom split editor */}
             {isEditingThisItem && assignedPersonIds.length >= 2 && (
-              <CustomSplitEditor
-                itemId={item.id}
-                itemPriceInCents={item.priceInCents}
-                assignedPeople={assignedPersonIds.map(id => {
-                  const person = people.find(p => p.id === id);
-                  return { id, name: person?.name || 'Unknown' };
-                })}
-                onSave={(customSplit) => handleCustomSplitSave(item.id, customSplit)}
-                onCancel={handleCustomSplitCancel}
-              />
+              <div className="mt-2">
+                <CustomSplitEditor
+                  itemId={item.id}
+                  itemPriceInCents={item.priceInCents}
+                  assignedPeople={assignedPersonIds.map(id => {
+                    const person = people.find(p => p.id === id);
+                    return { id, name: person?.name || 'Unknown' };
+                  })}
+                  onSave={(customSplit) => handleCustomSplitSave(item.id, customSplit)}
+                  onCancel={handleCustomSplitCancel}
+                />
+              </div>
             )}
           </div>
         );
@@ -197,15 +203,15 @@ function CustomSplitEditor({ itemId, itemPriceInCents, assignedPeople, onSave, o
   };
 
   return (
-    <div className="custom-split-editor">
-      <h4 className="editor-title">Custom Split</h4>
+    <div className="mt-3 p-3 bg-zinc-50 dark:bg-zinc-800 rounded-md">
+      <h4 className="text-base font-medium mb-3 text-zinc-900 dark:text-zinc-50">Custom Split</h4>
 
       {assignedPeople.map(person => (
-        <div key={person.id} className="split-input-row">
-          <label htmlFor={`split-${itemId}-${person.id}`} className="person-label">
+        <div key={person.id} className="flex justify-between items-center mb-2">
+          <label htmlFor={`split-${itemId}-${person.id}`} className="flex-1 text-sm text-zinc-700 dark:text-zinc-300">
             {person.name}
           </label>
-          <div className="percentage-input-group">
+          <div className="flex items-center gap-1">
             <input
               id={`split-${itemId}-${person.id}`}
               type="number"
@@ -214,22 +220,26 @@ function CustomSplitEditor({ itemId, itemPriceInCents, assignedPeople, onSave, o
               step="1"
               value={percentages[person.id] || 0}
               onChange={(e) => handlePercentageChange(person.id, e.target.value)}
-              className="percentage-input"
+              className="w-[70px] px-2 py-1.5 text-sm border border-zinc-300 dark:border-zinc-600 rounded-md min-h-[36px] bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-50 focus:outline-none focus:ring-2 focus:ring-brand focus:border-transparent"
             />
-            <span className="percentage-symbol">%</span>
+            <span className="text-sm text-zinc-500 dark:text-zinc-400">%</span>
           </div>
         </div>
       ))}
 
-      <div className={`split-total ${isValid ? 'valid' : 'invalid'}`}>
+      <div className={`mt-3 mb-3 font-medium text-center p-2 rounded-md ${
+        isValid
+          ? 'text-success bg-success-light dark:bg-success/10'
+          : 'text-danger bg-danger-light dark:bg-danger/10'
+      }`}>
         Total: {totalPercentage}%
       </div>
 
-      <div className="editor-actions">
-        <button onClick={onCancel} className="cancel-btn">
+      <div className="flex gap-2 justify-end">
+        <button onClick={onCancel} className="min-w-[80px] px-4 py-2 rounded-md bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 hover:bg-zinc-200 dark:hover:bg-zinc-700 transition-colors">
           Cancel
         </button>
-        <button onClick={handleSave} disabled={!isValid} className="save-btn">
+        <button onClick={handleSave} disabled={!isValid} className="min-w-[80px] px-4 py-2 rounded-md bg-brand text-white hover:bg-brand-hover disabled:opacity-40 disabled:cursor-not-allowed transition-colors">
           Save
         </button>
       </div>
