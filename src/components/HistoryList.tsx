@@ -27,14 +27,19 @@ export function HistoryList({ onBack }: HistoryListProps) {
   };
 
   return (
-    <div className="history-list">
-      <div className="history-header">
-        <h2>Past Splits</h2>
-        <button onClick={onBack}>Back to Split</button>
+    <div>
+      <div className="flex justify-between items-center mb-4">
+        <h2 className="text-xl font-semibold text-zinc-900 dark:text-zinc-50">Past Splits</h2>
+        <button
+          className="px-3 py-2 text-sm rounded-md bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 hover:bg-zinc-200 dark:hover:bg-zinc-700 transition-colors min-h-[36px]"
+          onClick={onBack}
+        >
+          Back to Split
+        </button>
       </div>
 
       {bills.length === 0 ? (
-        <div className="history-empty">
+        <div className="text-center text-zinc-500 dark:text-zinc-400 py-8 px-4">
           No saved splits yet. Complete a split and save it to see it here.
         </div>
       ) : (
@@ -55,18 +60,18 @@ export function HistoryList({ onBack }: HistoryListProps) {
             );
 
             return (
-              <details key={bill.id} className="history-item">
-                <summary className="history-item__summary">
+              <details key={bill.id} className="mb-2 group">
+                <summary className="flex justify-between items-center min-h-[44px] px-4 py-3 cursor-pointer bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-700 rounded-xl list-none [&::-webkit-details-marker]:hidden select-none hover:bg-zinc-50 dark:hover:bg-zinc-800">
                   <div>
-                    <div className="history-meta">
+                    <div className="text-sm font-medium text-zinc-800 dark:text-zinc-200">
                       <strong>{date}</strong>
                     </div>
-                    <div className="history-meta">
+                    <div className="text-sm text-zinc-500 dark:text-zinc-400">
                       {formatCurrency(bill.totalInCents)} • {bill.people.length} people • {bill.items.length} items
                     </div>
                   </div>
                   <button
-                    className="history-delete-btn"
+                    className="px-2 py-1 text-xs rounded-md bg-transparent text-danger hover:bg-danger-light dark:hover:bg-danger/10 transition-colors min-h-[32px] min-w-[32px]"
                     onClick={(e) => {
                       e.preventDefault();
                       handleDelete(bill.id);
@@ -76,45 +81,45 @@ export function HistoryList({ onBack }: HistoryListProps) {
                   </button>
                 </summary>
 
-                <div className="history-item__details">
+                <div className="px-4 py-3 -mt-px border border-zinc-200 dark:border-zinc-700 border-t-0 rounded-b-xl bg-zinc-50 dark:bg-zinc-800 text-sm text-zinc-700 dark:text-zinc-300">
                   <div>
                     <strong>Bill Breakdown:</strong>
                   </div>
-                  <div style={{ marginTop: '8px' }}>
-                    Subtotal: {formatCurrency(summary.billSubtotal)}
-                  </div>
-                  <div>Tax: {formatCurrency(summary.totalTax)}</div>
-                  <div>Tip: {formatCurrency(summary.totalTip)}</div>
-                  <div style={{ marginTop: '8px', fontWeight: 'bold' }}>
-                    Grand Total: {formatCurrency(summary.grandTotal)}
+                  <div className="mt-2 space-y-0.5">
+                    <div className="flex justify-between"><span>Subtotal</span><span>{formatCurrency(summary.billSubtotal)}</span></div>
+                    <div className="flex justify-between"><span>Tax</span><span>{formatCurrency(summary.totalTax)}</span></div>
+                    <div className="flex justify-between"><span>Tip</span><span>{formatCurrency(summary.totalTip)}</span></div>
+                    <div className="flex justify-between font-bold mt-1 pt-1 border-t border-zinc-200 dark:border-zinc-700">
+                      <span>Grand Total</span><span>{formatCurrency(summary.grandTotal)}</span>
+                    </div>
                   </div>
 
-                  <div style={{ marginTop: '12px' }}>
+                  <div className="mt-3">
                     <strong>Per Person:</strong>
                   </div>
                   {summary.personBreakdowns.map((breakdown) => (
-                    <div key={breakdown.personId} style={{ marginTop: '8px' }}>
-                      <div style={{ fontWeight: '500' }}>
+                    <div key={breakdown.personId} className="mt-2">
+                      <div className="font-medium">
                         {breakdown.personName}: {formatCurrency(breakdown.total)}
                       </div>
                       {breakdown.items.length > 0 && (
-                        <ul style={{ marginLeft: '16px', fontSize: '0.875rem' }}>
+                        <ul className="ml-4 text-sm">
                           {breakdown.items.map((item) => (
                             <li key={item.itemId}>
                               {item.itemName}{' '}
-                              <span style={{ color: '#666' }}>
+                              <span className="text-zinc-500 dark:text-zinc-400">
                                 {item.isCustomSplit ? '(custom)' : `(1/${item.splitCount})`}
                               </span>
                               : {formatCurrency(item.shareInCents)}
                             </li>
                           ))}
                           {breakdown.taxShare > 0 && (
-                            <li style={{ color: '#666' }}>
+                            <li className="text-zinc-500 dark:text-zinc-400">
                               Tax share: {formatCurrency(breakdown.taxShare)}
                             </li>
                           )}
                           {breakdown.tipShare > 0 && (
-                            <li style={{ color: '#666' }}>
+                            <li className="text-zinc-500 dark:text-zinc-400">
                               Tip share: {formatCurrency(breakdown.tipShare)}
                             </li>
                           )}
@@ -124,13 +129,13 @@ export function HistoryList({ onBack }: HistoryListProps) {
                   ))}
 
                   {bill.taxInput && (
-                    <div style={{ marginTop: '12px', fontSize: '0.875rem', color: '#666' }}>
+                    <div className="mt-3 text-sm text-zinc-500 dark:text-zinc-400">
                       Tax: {bill.taxInput.type === 'rate'
                         ? `${(bill.taxInput.rate * 100).toFixed(2)}%`
                         : `$${(bill.taxInput.amount / 100).toFixed(2)}`}
                     </div>
                   )}
-                  <div style={{ fontSize: '0.875rem', color: '#666' }}>
+                  <div className="text-sm text-zinc-500 dark:text-zinc-400">
                     Tip: {(bill.tipRate * 100).toFixed(0)}%
                   </div>
                 </div>
@@ -139,7 +144,11 @@ export function HistoryList({ onBack }: HistoryListProps) {
           })}
 
           <button
-            className={`clear-history-btn ${confirmingClear ? 'confirming' : ''}`}
+            className={`w-full mt-4 px-4 py-3 text-sm rounded-xl transition-colors ${
+              confirmingClear
+                ? 'bg-danger text-white hover:bg-danger/90'
+                : 'bg-zinc-100 dark:bg-zinc-800 text-danger hover:bg-danger-light dark:hover:bg-danger/10'
+            }`}
             onClick={handleClearHistory}
           >
             {confirmingClear ? 'Are you sure?' : 'Clear All History'}
